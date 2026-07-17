@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,6 @@
     <!-- Babel Standalone pour compiler le JSX directement dans le navigateur -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -31,13 +30,10 @@
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen">
 
-
     <div id="root"></div>
-
 
     <script type="text/babel">
         const { useState, useEffect, useMemo, useCallback } = React;
-
 
         /* --- COMPOSANTS ICONES SVG PURS (Aucune dépendance externe) --- */
         const TrendingUp = () => (
@@ -46,7 +42,6 @@
             </svg>
         );
 
-
         const Calendar = ({ className = "w-5 h-5 text-blue-500" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
@@ -54,13 +49,11 @@
             </svg>
         );
 
-
         const BarChart3 = ({ className = "w-4 h-4 text-blue-500" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>
             </svg>
         );
-
 
         const Plus = ({ className = "w-4 h-4" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -68,13 +61,11 @@
             </svg>
         );
 
-
         const Trash2 = ({ className = "w-4 h-4" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/>
             </svg>
         );
-
 
         const Calculator = ({ className = "w-4 h-4" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -84,13 +75,11 @@
             </svg>
         );
 
-
         const ArrowRight = ({ className = "w-4 h-4 text-slate-300" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
             </svg>
         );
-
 
         const RefreshCw = ({ className = "w-3 h-3" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -98,13 +87,11 @@
             </svg>
         );
 
-
         const Languages = ({ className = "w-4 h-4 text-blue-500" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>
             </svg>
         );
-
 
         const LayoutGrid = ({ className = "w-4 h-4" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -113,7 +100,6 @@
             </svg>
         );
 
-
         const ShieldCheck = ({ className = "w-4 h-4" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z"/>
@@ -121,13 +107,11 @@
             </svg>
         );
 
-
         const DollarSign = ({ className = "w-5 h-5 text-amber-500" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
         );
-
 
         const Copy = ({ className = "w-4 h-4 text-white" }) => (
             <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -135,20 +119,17 @@
             </svg>
         );
 
-
         const ChevronUpIcon = () => (
             <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                 <path d="m18 15-6-6-6 6"/>
             </svg>
         );
 
-
         const ChevronDownIcon = () => (
             <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                 <path d="m6 9 6 6 6-6"/>
             </svg>
         );
-
 
         const defaultRates = {
             EUR: 2.25,
@@ -159,7 +140,6 @@
             PLN: 4.75
         };
 
-
         const currencySymbols = {
             EUR: '€',
             USD: '$',
@@ -169,28 +149,22 @@
             PLN: 'zł'
         };
 
-
         const availableCurrencies = ['EUR', 'USD', 'GBP', 'CHF', 'HUF', 'PLN'];
-
 
         const App = () => {
             const [appMode, setAppMode] = useState('strategy'); 
             const [lang, setLang] = useState('fr');
 
-
             const [baseCurr, setBaseCurr] = useState('EUR');
             const [quoteCurr, setQuoteCurr] = useState('USD');
 
-
             // Notification éphémère (Toast) pour remplacer alert()
             const [toastMessage, setToastMessage] = useState(null);
-
 
             const showToast = (msg) => {
                 setToastMessage(msg);
                 setTimeout(() => setToastMessage(null), 3000);
             };
-
 
             const translations = {
                 fr: {
@@ -323,12 +297,9 @@
                 }
             };
 
-
             const t = translations[lang];
 
-
             const [isLive, setIsLive] = useState(true);
-
 
             // --- CONFIGS PAR MODE ---
             const [stripsConfig, setStripsConfig] = useState({
@@ -338,7 +309,6 @@
                 rateBase: 2.25,
                 rateQuote: 3.75
             });
-
 
             const [activeTab, setActiveTab] = useState('monthly');
             const [strips, setStrips] = useState({
@@ -366,7 +336,6 @@
                 ]
             });
 
-
             const [stratConfig, setStratConfig] = useState({
                 spotRate: 1.1469,
                 forwardFee: 0.80,
@@ -375,7 +344,6 @@
                 rateBase: 2.25,
                 rateQuote: 3.75
             });
-
 
             const [strategyOptions, setStrategyOptions] = useState([
                 {
@@ -389,14 +357,12 @@
                 }
             ]);
 
-
             // --- ÉTAT ET CONFIG CALCULATEUR D'APPEL DE MARGE ---
             const [marginVolume, setMarginVolume] = useState(1500000);
             const [marginSpotRate, setMarginSpotRate] = useState(1.1400);
             const [marginForwardRate, setMarginForwardRate] = useState(1.1350);
             const [marginInitialDeposit, setMarginInitialDeposit] = useState(5.00); 
             const [marginCallTrigger, setMarginCallTrigger] = useState(5.00);       
-
 
             // --- ACCÈS AUX MARCHÉS EN DIRECT (Modification HTTPS de sécurité pour GitHub) ---
             const fetchSpotPrice = useCallback(async () => {
@@ -417,14 +383,12 @@
                 }
             }, [baseCurr, quoteCurr]);
 
-
             useEffect(() => {
                 if (!isLive) return;
                 fetchSpotPrice();
                 const interval = setInterval(fetchSpotPrice, 2000);
                 return () => clearInterval(interval);
             }, [isLive, fetchSpotPrice]);
-
 
             useEffect(() => {
                 const baseRate = defaultRates[baseCurr] || 2.0;
@@ -433,7 +397,6 @@
                 setStratConfig(prev => ({ ...prev, rateBase: baseRate, rateQuote: quoteRate }));
                 fetchSpotPrice();
             }, [baseCurr, quoteCurr]);
-
 
             // --- STRATEGIE DE COPIE SANS ALERT() ---
             const copyToClipboard = (res) => {
@@ -445,7 +408,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                     style: 'currency', currency: baseCurr, maximumFractionDigits: 0
                 })}`;
 
-
                 const el = document.createElement('textarea');
                 el.value = summaryText;
                 document.body.appendChild(el);
@@ -453,10 +415,8 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 document.execCommand('copy');
                 document.body.removeChild(el);
 
-
                 showToast(t.copySuccess);
             };
-
 
             // --- SECURISE DES NOMBRES ---
             const formatInputNumber = (val) => {
@@ -466,12 +426,10 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
             };
 
-
             const parseInputNumber = (str) => {
                 const clean = str.replace(/[^\d]/g, '');
                 return clean ? parseInt(clean, 10) : 0;
             };
-
 
             const getDaysBetween = (start, end) => {
                 if (!start || !end) return 0;
@@ -483,45 +441,37 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 return Math.max(0, Math.round(diffTime / (1000 * 60 * 60 * 24)));
             };
 
-
             const calculatedStrips = useMemo(() => {
                 const processTab = (tabData) => {
                     return tabData.map(strip => {
                         const days = getDaysBetween(strip.start, strip.end);
                         let pointsUsed = 0;
 
-
                         if (stripsConfig.pointsMode === 'auto') {
                             const today = new Date('2026-07-16');
                             const daysToStart = getDaysBetween(today, strip.start);
                             const daysToEnd = getDaysBetween(today, strip.end);
-
 
                             const tStart = daysToStart / 360;
                             const tEnd = daysToEnd / 360;
                             const rBase = stripsConfig.rateBase / 100;
                             const rQuote = stripsConfig.rateQuote / 100;
 
-
                             const forwardStart = stripsConfig.spotRate * (1 + rQuote * tStart) / (1 + rBase * tStart);
                             const forwardEnd = stripsConfig.spotRate * (1 + rQuote * tEnd) / (1 + rBase * tEnd);
                             const worstRawRate = Math.min(forwardStart, forwardEnd);
 
-
                             pointsUsed = Math.round((worstRawRate - stripsConfig.spotRate) * 10000 * 10) / 10;
                         }
-
 
                         const rawForward = stripsConfig.spotRate + (pointsUsed / 10000);
                         const theoreticalRate = stripsConfig.pointsMode === 'auto' 
                             ? rawForward * (1 - stripsConfig.forwardFee / 100)
                             : strip.rate;
 
-
                         const hasOverride = strip.rateOverride !== undefined && strip.rateOverride !== null && strip.rateOverride !== '';
                         const parsedOverride = hasOverride ? parseFloat(strip.rateOverride) : null;
                         const finalRate = (hasOverride && !isNaN(parsedOverride)) ? parsedOverride : theoreticalRate;
-
 
                         return {
                             ...strip,
@@ -534,14 +484,12 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                     });
                 };
 
-
                 return {
                     monthly: processTab(strips.monthly),
                     quarterly: processTab(strips.quarterly),
                     semiAnnual: processTab(strips.semiAnnual),
                 };
             }, [strips, stripsConfig]);
-
 
             const blendedRates = useMemo(() => {
                 const calc = (data) => data.length === 0 ? 0 : data.reduce((acc, curr) => acc + curr.calculatedRate, 0) / data.length;
@@ -552,12 +500,10 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 };
             }, [calculatedStrips]);
 
-
             const stripDiffVsSpotPerc = useMemo(() => {
                 if (stripsConfig.spotRate === 0) return 0;
                 return ((blendedRates[activeTab] / stripsConfig.spotRate) - 1) * 100;
             }, [blendedRates, activeTab, stripsConfig.spotRate]);
-
 
             const strategyResults = useMemo(() => {
                 return strategyOptions.map(option => {
@@ -568,12 +514,10 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                         const days = getDaysBetween(f.start, f.end);
                         let pointsUsed = f.points;
 
-
                         if (stratConfig.pointsMode === 'auto') {
                             const today = new Date('2026-07-16');
                             const daysToStart = getDaysBetween(today, f.start);
                             const daysToEnd = getDaysBetween(today, f.end);
-
 
                             const tStart = daysToStart / 360;
                             const tEnd = daysToEnd / 360;
@@ -584,23 +528,18 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                             const forwardEnd = stratConfig.spotRate * (1 + rQuote * tEnd) / (1 + rBase * tEnd);
                             const worstRawRate = Math.min(forwardStart, forwardEnd);
 
-
                             pointsUsed = Math.round((worstRawRate - stratConfig.spotRate) * 10000 * 10) / 10;
                         }
 
-
                         const rawForwardForRate = stratConfig.spotRate + (pointsUsed / 10000);
                         const calculatedTheoreticalRate = rawForwardForRate * (1 - stratConfig.forwardFee / 100);
-
 
                         const hasOverride = f.rateOverride !== undefined && f.rateOverride !== null && f.rateOverride !== '';
                         const parsedOverride = hasOverride ? parseFloat(f.rateOverride) : null;
                         const finalRate = (hasOverride && !isNaN(parsedOverride)) ? parsedOverride : calculatedTheoreticalRate;
 
-
                         totalVol += f.volume;
                         weightedSum += (finalRate * f.volume);
-
 
                         return {
                             ...f,
@@ -612,12 +551,10 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                         };
                     });
 
-
                     const avgRate = totalVol > 0 ? weightedSum / totalVol : 0;
                     const euroNeeded = totalVol > 0 ? totalVol / avgRate : 0;
                     const percNeeds = stratConfig.annualVolume > 0 ? (totalVol / stratConfig.annualVolume) * 100 : 0;
                     const diffVsSpotPerc = stratConfig.spotRate > 0 ? ((avgRate / stratConfig.spotRate) - 1) * 100 : 0;
-
 
                     return {
                         id: option.id,
@@ -632,17 +569,14 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 });
             }, [strategyOptions, stratConfig]);
 
-
             const marginCalculations = useMemo(() => {
                 const contractValueBase = marginVolume; 
                 const initialDepositBase = marginVolume * (marginInitialDeposit / 100); 
                 const marginCallAmountBase = initialDepositBase; 
 
-
                 const firstRate = marginForwardRate * (1 + (marginCallTrigger / 100));
                 const secondRate = firstRate * (1 + (marginCallTrigger / 100));
                 const thirdRate = secondRate * (1 + (marginCallTrigger / 100));
-
 
                 return {
                     contractValueBase,
@@ -653,7 +587,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                     thirdRate
                 };
             }, [marginVolume, marginForwardRate, marginInitialDeposit, marginCallTrigger]);
-
 
             // --- HANDLERS STRIPS ---
             const addStrip = (tab) => {
@@ -671,11 +604,9 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 }));
             };
 
-
             const removeStrip = (tab, id) => {
                 setStrips(prev => ({ ...prev, [tab]: prev[tab].filter(s => s.id !== id) }));
             };
-
 
             const handleStripDateChange = (tab, id, field, val) => {
                 setStrips(prev => ({
@@ -684,14 +615,12 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 }));
             };
 
-
             const handleStripRateChange = (tab, id, val) => {
                 setStrips(prev => ({
                     ...prev,
                     [tab]: prev[tab].map(s => s.id === id ? { ...s, rateOverride: val } : s)
                 }));
             };
-
 
             const handleStripRateStep = (tab, id, currentBaseRate, currentOverride, direction) => {
                 const hasOverride = currentOverride !== null && currentOverride !== undefined && currentOverride !== '';
@@ -700,7 +629,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 const newValue = direction === 'up' ? baseValue + step : baseValue - step;
                 handleStripRateChange(tab, id, newValue.toFixed(4));
             };
-
 
             // --- HANDLERS STRATÉGIE ---
             const addOption = () => {
@@ -714,13 +642,11 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 setStrategyOptions([...strategyOptions, newOption]);
             };
 
-
             const removeOption = (id) => {
                 if (strategyOptions.length > 1) {
                     setStrategyOptions(strategyOptions.filter(o => o.id !== id));
                 }
             };
-
 
             const addStrategyForward = (optionId) => {
                 setStrategyOptions(prev => prev.map(opt => {
@@ -743,7 +669,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 }));
             };
 
-
             const removeStrategyForward = (optionId, forwardId) => {
                 setStrategyOptions(prev => prev.map(opt => {
                     if (opt.id === optionId) {
@@ -752,7 +677,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                     return opt;
                 }));
             };
-
 
             const updateStrategyForward = (optionId, forwardId, field, val) => {
                 setStrategyOptions(prev => prev.map(opt => {
@@ -766,7 +690,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 }));
             };
 
-
             const handleRateStep = (optionId, forwardId, currentCalculatedRate, currentOverride, direction) => {
                 const hasOverride = currentOverride !== null && currentOverride !== undefined && currentOverride !== '';
                 const baseValue = hasOverride ? parseFloat(currentOverride) : currentCalculatedRate;
@@ -774,7 +697,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 const newValue = direction === 'up' ? baseValue + step : baseValue - step;
                 updateStrategyForward(optionId, forwardId, 'rateOverride', newValue.toFixed(4));
             };
-
 
             const handleSyncMarginRates = () => {
                 setMarginSpotRate(stratConfig.spotRate);
@@ -784,7 +706,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                     setMarginForwardRate(stratConfig.spotRate);
                 }
             };
-
 
             return (
                 <div className="min-h-screen bg-slate-50 text-slate-900 font-sans p-4 md:p-8 relative">
@@ -796,7 +717,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                             {toastMessage}
                         </div>
                     )}
-
 
                     <div className="max-w-6xl mx-auto">
                         
@@ -822,7 +742,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                     <Calculator className="w-4 h-4" /> {t.modeMargin}
                                 </button>
                             </div>
-
 
                             {/* Sélecteur de devises dynamique */}
                             <div className="flex items-center gap-3 bg-white px-4 py-2.5 rounded-2xl shadow-sm border border-slate-200 w-fit">
@@ -861,7 +780,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                 </div>
                             </div>
 
-
                             <button
                                 onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')}
                                 className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors font-medium text-slate-700 w-fit"
@@ -870,7 +788,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                 {lang.toUpperCase()}
                             </button>
                         </div>
-
 
                         {appMode === 'strips' ? (
                             /* --- CONTENU MODE STRIPS --- */
@@ -881,7 +798,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                     </h1>
                                     <p className="text-slate-500 mt-1">{t.subtitle}</p>
                                 </header>
-
 
                                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                                     <div className="lg:col-span-2 space-y-6">
@@ -938,7 +854,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                 </div>
                                             </div>
 
-
                                             {/* Sélecteur de méthode de calcul des points forward */}
                                             <div className="pt-4 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6">
                                                 <div className="space-y-2">
@@ -960,7 +875,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                         </button>
                                                     </div>
                                                 </div>
-
 
                                                 {stripsConfig.pointsMode === 'auto' && (
                                                     <>
@@ -991,7 +905,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                             </div>
                                         </div>
 
-
                                         {/* Onglets périodicités */}
                                         <div className="flex p-1 bg-slate-200 rounded-xl w-fit">
                                             {['monthly', 'quarterly', 'semiAnnual'].map(key => (
@@ -1004,7 +917,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                 </button>
                                             ))}
                                         </div>
-
 
                                         {/* Liste détail de l'onglet Strips */}
                                         <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
@@ -1042,7 +954,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                             </div>
                                                         </div>
 
-
                                                         <div className="flex items-center gap-4 ml-auto">
                                                             {stripsConfig.pointsMode === 'auto' && (
                                                                 <div className="text-center shrink-0">
@@ -1050,7 +961,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                                     <div className="text-[9px] text-slate-400">Pts</div>
                                                                 </div>
                                                             )}
-
 
                                                             <div className="flex items-center gap-1">
                                                                 <div className="flex flex-col items-center select-none shrink-0">
@@ -1061,7 +971,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                                         <ChevronDownIcon />
                                                                     </button>
                                                                 </div>
-
 
                                                                 <input
                                                                     type="text"
@@ -1076,7 +985,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                                 )}
                                                             </div>
 
-
                                                             <button onClick={() => removeStrip(activeTab, strip.id)} className="p-2 text-slate-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all shrink-0">
                                                                 <Trash2 className="w-4 h-4" />
                                                             </button>
@@ -1086,7 +994,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                             </div>
                                         </div>
                                     </div>
-
 
                                     {/* Sidebar Strip calculations */}
                                     <div className="space-y-6">
@@ -1130,7 +1037,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                         <Plus /> {t.addOption}
                                     </button>
                                 </header>
-
 
                                 {/* Config globale Strategy */}
                                 <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-6">
@@ -1200,7 +1106,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                         </div>
                                     </div>
 
-
                                     {/* Points calculation Method */}
                                     <div className="pt-4 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6">
                                         <div className="space-y-2">
@@ -1214,7 +1119,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                 </button>
                                             </div>
                                         </div>
-
 
                                         {stratConfig.pointsMode === 'auto' && (
                                             <>
@@ -1245,7 +1149,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                     </div>
                                 </div>
 
-
                                 {/* Options and Strategy grids */}
                                 <div className="space-y-12">
                                     {strategyResults.map((res, idx) => (
@@ -1271,7 +1174,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                     </button>
                                                 </div>
                                             </div>
-
 
                                             <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
                                                 <div className="overflow-x-auto">
@@ -1349,7 +1251,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                                                 </button>
                                                                             </div>
 
-
                                                                             <input
                                                                                 type="text"
                                                                                 value={f.rateOverride !== undefined && f.rateOverride !== null ? f.rateOverride : f.calculatedRate.toFixed(4)}
@@ -1373,7 +1274,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                         </tbody>
                                                     </table>
                                                 </div>
-
 
                                                 {/* Summary card logic */}
                                                 <div className="p-8 bg-slate-50/40 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1427,7 +1327,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                     </button>
                                 </header>
 
-
                                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                                     {/* Inputs marge */}
                                     <div className="lg:col-span-2 space-y-6">
@@ -1473,7 +1372,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                 </div>
                                             </div>
 
-
                                             <h2 className="text-sm font-bold text-slate-400 uppercase tracking-wider pt-4 pb-3 border-b border-slate-100">{t.marginTerms}</h2>
                                             
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1503,7 +1401,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                 </div>
                                             </div>
 
-
                                             {/* Graphique de risque de change */}
                                             <div className="pt-4 border-t border-slate-100 space-y-2">
                                                 <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">{t.riskIndicator}</h3>
@@ -1527,7 +1424,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                         </div>
                                     </div>
 
-
                                     {/* Recap appels de marge */}
                                     <div className="space-y-6">
                                         <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
@@ -1550,7 +1446,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                                                 </span>
                                             </div>
                                         </div>
-
 
                                         <div className="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-6 rounded-3xl shadow-lg space-y-5">
                                             <h2 className="text-xs font-bold text-slate-400 uppercase tracking-wider pb-2 border-b border-slate-700">{t.marginLevels}</h2>
@@ -1584,7 +1479,6 @@ Devise de Base Nécessaire : ${res.euroNeeded.toLocaleString(lang === 'fr' ? 'fr
                 </div>
             );
         };
-
 
         // Montage de l'application React
         const root = ReactDOM.createRoot(document.getElementById('root'));
